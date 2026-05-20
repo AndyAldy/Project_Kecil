@@ -1,6 +1,6 @@
 <?php
 // Memanggil logika proses data dari file terpisah
-include 'proses.php';
+include __DIR__ . '/proses.php';
 ?>
 
 <!DOCTYPE html>
