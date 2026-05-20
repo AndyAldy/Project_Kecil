@@ -1,5 +1,8 @@
 <?php
-// REFAKTOR: Logika manajemen Session dibersihkan agar lebih robust saat menghandle data serverless
+// Set folder penyimpanan session ke /tmp karena server Vercel bersifat read-only
+session_save_path('/tmp');
+
+// REFAKTOR: Logika manajemen Session dibersihkan agar lebih robust
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
