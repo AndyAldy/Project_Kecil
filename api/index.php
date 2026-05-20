@@ -1,6 +1,6 @@
 <?php
 // Memanggil logika proses data dari file terpisah
-include 'api/proses.php';
+include 'proses.php';
 ?>
 <!-- Bagian Frontend untuk menampilkan form dan tabel data pengguna pake HTML -->
 <!DOCTYPE html>

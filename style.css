@@ -111,7 +111,7 @@ footer {
     margin-top: auto; 
 }
 
-/* KUNCI RESPONSIVE: Mengubah layout saat dibuka di Smartphone (Layar < 600px) */
+/* REFAKTOR: Memperbaiki penutupan bracket kurung kurawal yang salah letak */
 @media (max-width: 600px) {
     main {
         padding: 10px;
@@ -120,6 +120,6 @@ footer {
     form {
         padding: 15px;
     }
-
-/* CSS gunanya untuk mendekorasi website, kalo ga make CSS nanti tampilan website jadi kayak zaman 2010 an*/
 }
+
+/* CSS gunanya untuk mendekorasi website, kalo ga make CSS nanti tampilan website jadi kayak zaman 2010 an */

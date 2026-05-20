@@ -1,10 +1,10 @@
 <?php
-// Memulai session untuk menyimpan data sementara di browser pengguna
+// REFAKTOR: Logika manajemen Session dibersihkan agar lebih robust saat menghandle data serverless
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Jika session belum memiliki data_pengguna, buat data bawaan awal
+// Inisialisasi data bawaan awal jika session pengguna masih baru
 if (!isset($_SESSION['data_pengguna'])) {
     $_SESSION['data_pengguna'] = [
         ["nama" => "Budi Santoso", "pesan" => "Halo, webnya bagus!"],
@@ -12,21 +12,28 @@ if (!isset($_SESSION['data_pengguna'])) {
     ];
 }
 
-// Membuat variabel referensi agar kode di index.php tidak perlu diubah
+// Menggunakan pointer referensi array agar variabel sinkron secara otomatis
 $data_pengguna = &$_SESSION['data_pengguna'];
 
-// Logika mendeteksi jika form telah di-submit oleh user
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Validasi request method POST dari form
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    // Menangkap dan mengamankan inputan user
-    $nama_baru = isset($_POST["nama"]) ? htmlspecialchars($_POST["nama"]) : "";
-    $pesan_baru = isset($_POST["pesan"]) ? htmlspecialchars($_POST["pesan"]) : "";
+    // Menangkap data input dan membersihkannya dari celah XSS
+    $nama_baru = isset($_POST["nama"]) ? htmlspecialchars(trim($_POST["nama"])) : "";
+    $pesan_baru = isset($_POST["pesan"]) ? htmlspecialchars(trim($_POST["pesan"])) : "";
 
-    // Validasi: pastikan inputan tidak kosong
-    if (!empty($nama_baru) && !empty($pesan_baru)) {
+    // Memastikan data input tidak kosong setelah di-trim
+    if ($nama_baru !== "" && $pesan_baru !== "") {
         
-        // Memasukkan data baru ke baris paling atas session array
-        array_unshift($_SESSION['data_pengguna'], ["nama" => $nama_baru, "pesan" => $pesan_baru]);
+        // Memasukkan entri baru ke bagian atas array list
+        array_unshift($_SESSION['data_pengguna'], [
+            "nama" => $nama_baru,
+            "pesan" => $pesan_baru
+        ]);
+        
+        // REFAKTOR OPTIONAL: Mencegah form submit berulang saat halaman di-refresh oleh user (Post/Redirect/Get pattern)
+        header("Location: " . $_SERVER['REQUEST_URI']);
+        exit();
     }
 }
 ?>
