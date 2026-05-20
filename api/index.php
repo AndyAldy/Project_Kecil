@@ -11,7 +11,7 @@ include 'proses.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Web Responsive</title>
 <!-- Link ke file CSS untuk styling halaman -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
@@ -68,7 +68,7 @@ include 'proses.php';
         <p>&copy; 2026 - Tugas Pemrograman Web Responsif</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
     <!-- Buat manggil codingan yang beda file -->
 
 </body>
