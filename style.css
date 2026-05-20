@@ -1,0 +1,125 @@
+/* Reset margin dan padding default browser */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Mengatur struktur layout halaman utama */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* Desain Komponen Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Desain Komponen Body Utama */
+main {
+    flex: 1; 
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Jarak elemen teks deskriptif */
+.deskripsi {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Desain Form Konten */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.grup-form {
+    margin-bottom: 15px;
+}
+
+.grup-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.grup-form input, .grup-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Desain Tombol Submit */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Penanganan Tabel agar responsif di layar kecil */
+.tabel-responsive {
+    overflow-x: auto; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Desain Komponen Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto; 
+}
+
+/* KUNCI RESPONSIVE: Mengubah layout saat dibuka di Smartphone (Layar < 600px) */
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+    
+    form {
+        padding: 15px;
+    }
+
+/* CSS gunanya untuk mendekorasi website, kalo ga make CSS nanti tampilan website jadi kayak zaman 2010 an*/
+}
